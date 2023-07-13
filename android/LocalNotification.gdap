@@ -1,0 +1,14 @@
+[config]
+
+name="Local Notification"
+binary_type="local"
+binary="local-notification-release.aar"
+
+[dependencies]
+
+local=[]
+remote=[
+    "com.google.android.play:review:2.0.1",
+    "com.google.android.gms:play-services-base:18.2.0"
+]
+custom_maven_repos=[]

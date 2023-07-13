@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <meta-data
+            android:name="org.godotengine.plugin.v1.LocalNotification"
+            android:value="vn.kyoz.godot.localnotification.LocalNotification" />
+
+        <receiver android:name="vn.kyoz.godot.localnotification.LocalNotificationReceiver" android:process=":remote" />
+
+    </application>
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+</manifest>
