@@ -167,13 +167,6 @@ public class LocalNotification extends GodotPlugin {
     }
 
     @UsedByGodot
-    public void showDaily(String title, String message, int interval, int tag) {
-        // This may not a properly and correct way but at least it work for me ATM.
-        // If you have any good solution, please help :D
-        showRepeating(title, message, interval, 86400, tag);
-    }
-
-    @UsedByGodot
     public void cancel(int tag) {
         Log.d(TAG, "cancel(" + Integer.toString(tag) + ")");
 

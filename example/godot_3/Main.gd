@@ -72,7 +72,8 @@ func _on_ShowRepeatingBtn_pressed():
 
 func _on_ShowDailyBtn_pressed():
 	LocalNotification.cancel(notification_tag)
-	LocalNotification.showDaily("Daily Notification", "See you after a day :))", 5, notification_tag)
+	LocalNotification.showDaily("Daily Notification", "See you after a day :))", 0, notification_tag)
+	OS.alert("Open this app next day at this time to see notification :)")
 
 
 func _on_CancelBtn_pressed():

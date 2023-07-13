@@ -65,7 +65,12 @@ func showDaily(title, message, interval, tag):
 		not_found_plugin()
 		return
 	
-	ln.showDaily(title, message, interval, tag)
+	if OS.get_name() == "ios":
+		ln.showDaily(title, message, interval, tag)
+	else:
+		# This may not a properly and correct way but at least it work for me ATM.
+		# If you have any good solution, please help :D
+		ln.showRepeating(title, message, interval, 86400, tag)
 
 
 func cancel(tag):
