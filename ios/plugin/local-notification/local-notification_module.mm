@@ -1,8 +1,8 @@
 //
-//  local_notification_module.m
-//  local_notification
+//  local-notification_module.m
+//  local-notification
 //
-//  Created by Kyoz on 10/07/2023.
+//  Created by Kyoz on 14/07/2023.
 //
 
 
@@ -13,7 +13,7 @@
 #endif
 
 
-#include "local_notification_module.h"
+#include "local-notification_module.h"
 
 LocalNotification * local_notification;
 

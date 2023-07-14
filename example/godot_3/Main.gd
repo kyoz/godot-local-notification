@@ -7,23 +7,19 @@ var notification_tag = 1
 
 func _ready():
 	LocalNotification.init()
-	#var _o = LocalNotification.connect("on_completed", self, "_on_completed")
-	#var _o2 = LocalNotification.connect("on_error", self, "_on_error")
 
 	_update_status()
-
+	
+	var _o = LocalNotification.connect("on_permission_request_completed", self, "_on_permission_request_completed")
+	
 
 func _notification(what):
 	if (what == MainLoop.NOTIFICATION_WM_FOCUS_IN):
 		_update_status()
 
 
-func _on_error(error_code):
-	print("failed with error: " + error_code)
-
-
-func _on_completed():
-	print("Completed")
+func _on_permission_request_completed():
+	_update_status()
 
 
 func _update_status():
@@ -72,10 +68,22 @@ func _on_ShowRepeatingBtn_pressed():
 
 func _on_ShowDailyBtn_pressed():
 	LocalNotification.cancel(notification_tag)
-	LocalNotification.showDaily("Daily Notification", "See you after a day :))", 0, notification_tag)
-	OS.alert("Open this app next day at this time to see notification :)")
+	var current_time = OS.get_time()
+	var current_hour = current_time.hour
+	var current_minute = current_time.minute + 1
+	
+	# This is just for testing, in real app, you just set hour and minute you want
+	if (current_minute >= 60):
+		current_hour += 1
+		current_minute = 0
+	
+	if current_hour >= 24:
+		current_hour = 0
+	
+	LocalNotification.showDaily("Daily Notification", "See you after a day :))", current_hour, current_minute, notification_tag)
+	OS.alert("A notification will show after one minute and every day at that time :)")
 
 
 func _on_CancelBtn_pressed():
 	LocalNotification.cancel(notification_tag)
-	OS.alert("All notification has been cleared")
+	OS.alert("Notification has been canceled")

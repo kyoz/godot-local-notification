@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD8AECFD2A5744C000222717 /* local_notification.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD8AECFC2A5744C000222717 /* local_notification.mm */; };
-		BD8AECFE2A5744C000222717 /* local_notification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BD8AECFB2A5744C000222717 /* local_notification.h */; };
-		BDF397C62A5BE8D50073C2AD /* local_notification_module.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDF397C52A5BE8D50073C2AD /* local_notification_module.mm */; };
+		BD8AECFD2A5744C000222717 /* local-notification.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD8AECFC2A5744C000222717 /* local-notification.mm */; };
+		BD8AECFE2A5744C000222717 /* local-notification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BD8AECFB2A5744C000222717 /* local-notification.h */; };
+		BDF397C62A5BE8D50073C2AD /* local-notification_module.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDF397C52A5BE8D50073C2AD /* local-notification_module.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,18 +19,18 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				BD8AECFE2A5744C000222717 /* local_notification.h in CopyFiles */,
+				BD8AECFE2A5744C000222717 /* local-notification.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BD8AECF82A5744C000222717 /* liblocal_notification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblocal_notification.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD8AECFB2A5744C000222717 /* local_notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = local_notification.h; sourceTree = "<group>"; };
-		BD8AECFC2A5744C000222717 /* local_notification.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = local_notification.mm; sourceTree = "<group>"; };
-		BDF397C22A5B4A5A0073C2AD /* local_notification_module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = local_notification_module.h; sourceTree = "<group>"; };
-		BDF397C52A5BE8D50073C2AD /* local_notification_module.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = local_notification_module.mm; sourceTree = "<group>"; };
+		BD8AECF82A5744C000222717 /* liblocal-notification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblocal-notification.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD8AECFB2A5744C000222717 /* local-notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = local-notification.h; sourceTree = "<group>"; };
+		BD8AECFC2A5744C000222717 /* local-notification.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = local-notification.mm; sourceTree = "<group>"; };
+		BDF397C22A5B4A5A0073C2AD /* local-notification_module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = local-notification_module.h; sourceTree = "<group>"; };
+		BDF397C52A5BE8D50073C2AD /* local-notification_module.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = local-notification_module.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 		BD8AECEF2A5744C000222717 = {
 			isa = PBXGroup;
 			children = (
-				BD8AECFA2A5744C000222717 /* local_notification */,
+				BD8AECFA2A5744C000222717 /* local-notification */,
 				BD8AECF92A5744C000222717 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,28 +55,28 @@
 		BD8AECF92A5744C000222717 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD8AECF82A5744C000222717 /* liblocal_notification.a */,
+				BD8AECF82A5744C000222717 /* liblocal-notification.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD8AECFA2A5744C000222717 /* local_notification */ = {
+		BD8AECFA2A5744C000222717 /* local-notification */ = {
 			isa = PBXGroup;
 			children = (
-				BDF397C52A5BE8D50073C2AD /* local_notification_module.mm */,
-				BD8AECFB2A5744C000222717 /* local_notification.h */,
-				BD8AECFC2A5744C000222717 /* local_notification.mm */,
-				BDF397C22A5B4A5A0073C2AD /* local_notification_module.h */,
+				BDF397C52A5BE8D50073C2AD /* local-notification_module.mm */,
+				BD8AECFB2A5744C000222717 /* local-notification.h */,
+				BD8AECFC2A5744C000222717 /* local-notification.mm */,
+				BDF397C22A5B4A5A0073C2AD /* local-notification_module.h */,
 			);
-			path = local_notification;
+			path = local-notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD8AECF72A5744C000222717 /* local_notification */ = {
+		BD8AECF72A5744C000222717 /* local-notification */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD8AED012A5744C000222717 /* Build configuration list for PBXNativeTarget "local_notification" */;
+			buildConfigurationList = BD8AED012A5744C000222717 /* Build configuration list for PBXNativeTarget "local-notification" */;
 			buildPhases = (
 				BD8AECF42A5744C000222717 /* Sources */,
 				BD8AECF52A5744C000222717 /* Frameworks */,
@@ -86,9 +86,9 @@
 			);
 			dependencies = (
 			);
-			name = local_notification;
-			productName = local_notification;
-			productReference = BD8AECF82A5744C000222717 /* liblocal_notification.a */;
+			name = local-notification;
+			productName = local-notification;
+			productReference = BD8AECF82A5744C000222717 /* liblocal-notification.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD8AECF32A5744C000222717 /* Build configuration list for PBXProject "local_notification" */;
+			buildConfigurationList = BD8AECF32A5744C000222717 /* Build configuration list for PBXProject "local-notification" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD8AECF72A5744C000222717 /* local_notification */,
+				BD8AECF72A5744C000222717 /* local-notification */,
 			);
 		};
 /* End PBXProject section */
@@ -128,8 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8AECFD2A5744C000222717 /* local_notification.mm in Sources */,
-				BDF397C62A5BE8D50073C2AD /* local_notification_module.mm in Sources */,
+				BD8AECFD2A5744C000222717 /* local-notification.mm in Sources */,
+				BDF397C62A5BE8D50073C2AD /* local-notification_module.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +283,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD8AECF32A5744C000222717 /* Build configuration list for PBXProject "local_notification" */ = {
+		BD8AECF32A5744C000222717 /* Build configuration list for PBXProject "local-notification" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD8AECFF2A5744C000222717 /* Debug */,
@@ -292,7 +292,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD8AED012A5744C000222717 /* Build configuration list for PBXNativeTarget "local_notification" */ = {
+		BD8AED012A5744C000222717 /* Build configuration list for PBXNativeTarget "local-notification" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD8AED022A5744C000222717 /* Debug */,

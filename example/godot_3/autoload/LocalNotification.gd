@@ -60,17 +60,18 @@ func showRepeating(title, message, interval, repeat_interval, tag):
 	ln.showRepeating(title, message, interval, repeat_interval, tag)
 
 
-func showDaily(title, message, interval, tag):
+func showDaily(title, message, at_hour, at_minute, tag):
 	if not ln:
 		not_found_plugin()
 		return
 	
-	if OS.get_name() == "ios":
-		ln.showDaily(title, message, interval, tag)
+	if OS.get_name() == "iOS":
+		ln.showDaily(title, message, at_hour, at_minute, tag)
 	else:
 		# This may not a properly and correct way but at least it work for me ATM.
 		# If you have any good solution, please help :D
-		ln.showRepeating(title, message, interval, 86400, tag)
+		ln.showRepeating(title, message,\
+			_generate_android_daily_notify_interval(at_hour, at_minute), 86400, tag)
 
 
 func cancel(tag):
@@ -83,3 +84,33 @@ func cancel(tag):
 
 func not_found_plugin():
 	print('[LocalNotification] Not found plugin. Please ensure that you checked LocalNotification plugin in the export template')
+
+
+func _generate_android_daily_notify_interval(hour, minute):
+	var today_time = OS.get_datetime()
+	today_time.hour = 0
+	today_time.minute = 0
+	today_time.second = 0
+	
+	var today_unix = OS.get_unix_time_from_datetime(today_time)
+	var tomorrow_unix = today_unix + 86400
+	
+	var current_time = OS.get_time()
+	today_time.hour = current_time.hour
+	today_time.minute = current_time.minute
+	today_time.second = current_time.second
+	var current_unix = OS.get_unix_time_from_datetime(today_time)
+	
+	var remaining_unix = tomorrow_unix - current_unix
+
+	var r_hour = hour
+	var r_minute = minute
+	
+	# Today
+	today_unix += r_hour * 3600
+	today_unix += r_minute * 60
+	
+	if today_unix > current_unix && today_unix < tomorrow_unix:
+		return today_unix - current_unix
+	else:
+		return remaining_unix + r_hour * 3600 + r_minute * 60
