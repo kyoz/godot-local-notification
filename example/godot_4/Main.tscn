@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxybfjx5583ee"]
+
+[ext_resource type="FontFile" uid="uid://darc3tbewfa5j" path="res://assets/Roboto-Regular.ttf" id="1"]
+[ext_resource type="Script" path="res://Main.gd" id="2"]
+
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="Main" type="Node"]
+script = ExtResource("2")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="Center" type="CenterContainer" parent="Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Canvas/Center"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="HBox" type="HBoxContainer" parent="Canvas/Center/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Canvas/Center/VBox/HBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("2")
+text = "Current Status: "
+
+[node name="NotGrantedLbl" type="Label" parent="Canvas/Center/VBox/HBox"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = SubResource("2")
+text = "Not Granted"
+
+[node name="GrantedLbl" type="Label" parent="Canvas/Center/VBox/HBox"]
+modulate = Color(0, 1, 0.415686, 1)
+layout_mode = 2
+theme_override_fonts/font = SubResource("2")
+text = "Granted"
+
+[node name="RequestPermissionBtn" type="Button" parent="Canvas/Center/VBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Request Permission"
+
+[node name="GetPermissionStatusBtn" type="Button" parent="Canvas/Center/VBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Get Permission Status"
+
+[node name="OpenSettingBtn" type="Button" parent="Canvas/Center/VBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Open App Setting"
+
+[node name="ColorRect" type="ColorRect" parent="Canvas/Center/VBox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="ShowBtn" type="Button" parent="Canvas/Center/VBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Show (After 5s)"
+
+[node name="ShowRepeatingBtn" type="Button" parent="Canvas/Center/VBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Show Repeat (Each 15s)"
+
+[node name="ShowDailyBtn" type="Button" parent="Canvas/Center/VBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Show Daily"
+
+[node name="CancelBtn" type="Button" parent="Canvas/Center/VBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Cancel Current"
+
+[connection signal="pressed" from="Canvas/Center/VBox/RequestPermissionBtn" to="." method="_on_RequestPermissionBtn_pressed"]
+[connection signal="pressed" from="Canvas/Center/VBox/GetPermissionStatusBtn" to="." method="_on_GetPermissionStatusBtn_pressed"]
+[connection signal="pressed" from="Canvas/Center/VBox/OpenSettingBtn" to="." method="_on_OpenSettingBtn_pressed"]
+[connection signal="pressed" from="Canvas/Center/VBox/ShowBtn" to="." method="_on_ShowBtn_pressed"]
+[connection signal="pressed" from="Canvas/Center/VBox/ShowRepeatingBtn" to="." method="_on_ShowRepeatingBtn_pressed"]
+[connection signal="pressed" from="Canvas/Center/VBox/ShowDailyBtn" to="." method="_on_ShowDailyBtn_pressed"]
+[connection signal="pressed" from="Canvas/Center/VBox/CancelBtn" to="." method="_on_CancelBtn_pressed"]
