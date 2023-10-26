@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">Godot plugin to send Local Notification on Android/iOS. Support Godot 3 & 4</a>.</h4>
+<h4 align="center">Godot plugin to send Local Notification on Android/iOS. Supports Godot 3 & 4</a>.</h4>
 
 <p align="center">
   <a href="https://github.com/kyoz/godot-local-notification/releases">
@@ -43,45 +43,45 @@
 
 # About
 
-This plugin help send Local Notification (Android/iOS). You can use it to send notifications to user at the time you want, or send daily notification at the specific time you want.
+This plugin helps send Local Notifications (Android/iOS). Send oneshot or daily notifications at a specified time to user.
 
-This plugin just handle Local Notification, it not support Remote Notification.
+This plugin only handles Local Notification, it does NOT support Remote Notification.
 
-Was build using automation scripts combine with CI/CD to help faster the release progress and well as release hotfix which save some of our times.
+Built using automation scripts combined with CI/CD to help speed up the release progress as well as the release of hotfixes which save some of our time.
 
-Support Godot 3 & 4.
+Supports Godot 3 & 4.
 
 # Caution
 
-This plugin to support latest Android (13+) and iOS. But there is some thing you must know before using.
+This plugin supports the latest Android (13+) and iOS. But there are some things you should know before using.
 
-The notification time may delay a few seconds or even minutes. If the user turn on Battery Optimize mode on their phone, your notifications will delay longer or even not display. The reason for that is i'm trying to not using `unsafe` permissions (Android). Cause it's way to risky, can crash your apps/games and not worth it.
+The notification time may be delayed by a few seconds or in worst cases, minutes. For instance, when the user turn on Battery Optimizaztion mode, the notifications will be further delayed or even not displayed. That's because I'm avoiding using `unsafe` permissions (Android). It's risky and can crash your app/game, which is not worth it.
 
-On iOS, the minimal `repeating_interval` is 60.
+On iOS, the minimum `repeating_interval` is 60 seconds.
 
-You shouldn't show notification when they using your app/game too, it's just annoying them. Schedule to send notifications at specific times like when energy is full, when the tree are mature or st like that...
+You shouldn't abuse too many notifications and annoy the user. Schedule notifications at specific moments like when player's energy is full, when a tree grows or something like that...
 
-When showing notifications, try to store their tags somewhere, in case you want to remove and schedule new set of notifications.
+When pushing a set of notifications, try to store their tag somewhere, in case you want to remove them and schedule a new set.
 
 # Installation
 
 ## Android
 
-Download the [android plugin](https://github.com/kyoz/godot-local-notification/releases) (match your Godot version), extract them to `your_project/android/plugins`
+Download the [Android plugin](https://github.com/kyoz/godot-local-notification/releases) (match your Godot version), and extract them to `your_project/android/plugins`
 
-Enable `LocalNotification` plugin in your android export preset
+Enable `LocalNotification` plugin in your Android export preset.
 
 *Note*: You must [use custom build](https://docs.godotengine.org/en/stable/tutorials/export/android_custom_build.html) for Android to use plugins.
 
 ## iOS
 
-Download the [ios plugin](https://github.com/kyoz/godot-local-notification/releases) (match your Godot version), extract them to `ios/plugins`
+Download the [iOS plugin](https://github.com/kyoz/godot-local-notification/releases) (match your Godot version), and extract them to `ios/plugins`
 
-Enable `LocalNotification` plugin in your ios export preset
+Enable `LocalNotification` plugin in your iOS export preset.
 
 # Customize
 
-On Android, you can change the color of notification by adding `notification-color.xml` to your app/game's `android/build/res/values` folder with content like so:
+On Android, you can change the color of notifications by adding `notification-color.xml` to your app's `android/build/res/values` folder with the following content:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,42 +90,42 @@ On Android, you can change the color of notification by adding `notification-col
 </resources>
 ```
 
-Default color are black (#000000)
+The default color is black (#000000).
 
-You should also use [this](https://romannurik.github.io/AndroidAssetStudio/icons-notification.html) or [Image Asset Studio](https://developer.android.com/studio/write/create-app-icons) (in Android Studio) to generate your notification icons too, and put them in mipmap folders.
+You should also use [this](https://romannurik.github.io/AndroidAssetStudio/icons-notification.html) or [Image Asset Studio](https://developer.android.com/studio/write/create-app-icons) (in Android Studio) to generate your notification icon, and put them in mipmap folders.
 
-The name of notification icon must be `notification_icon.png`
+The name of the notification icon must be `notification_icon.png`
 
 ```
 android/build/res/mipmap*/notification_icon.png
 ```
 
-On iOS, the notification icon will be the default App Icon so there's no need to do anything except design your beautiful icon.
+On iOS, the notification icon will be the your App Icon so there's no need to do anything except designing your beautiful icon.
 
 # Usage
 
-You will need to add an `autoload` script to use this plugin more easily.
+An `autoload` script is provided for easier use of this plugin.
 
-Download [autoload file](./autoload) to your game (Choose correct Godot version). Add it to your project `autoload` list.
+Download the [autoload file](./autoload) (match your Godot version). Add it to your project `autoload` list.
 
-Then you can easily use it anywhere with:
+Then you can easily use the plugin anywhere with:
 
 ```gdscript
 LocalNotification.init()
 
 LocalNotification.requestPermission()
 
-# To ensure the request process is done, you can use the signal as you like,
-# I prefer this solution
+# To ensure the request process has finished, you can use the signal,
+# I prefer this
 yield(LocalNotification, "on_permission_request_completed")
 
 if LocalNotification.isPermissionGranted():
   LocalNotification.show(title, message, 30, 10)
 ```
 
-Why have to call `init()`. Well, if you don't want to call init, you can change `init()` to `_ready()` on the `autoload` file. But for my experience when using a lots of plugin, init all plugins on `_ready()` is not a good idea. So i let you choose whenever you init the plugin. When showing a loading scene...etc...
+"Why do I have to call `init()`?" Well, if you don't want to, you can change `init()` to `_ready()` on the `autoload` file. But in my experience, when using a lot of plugin, initializing all plugins on `_ready()` is not a good idea. This way, you can choose whenever to initialize the plugin e.g. when showing a loading scene, etc.
 
-For more detail, see [examples](./example/)
+For more details, see [examples](./example/).
 
 # API
 
@@ -133,49 +133,49 @@ For more detail, see [examples](./example/)
 
 > `isPermissionGranted`() -> bool
 
-Use to check current status of permission. return true if permission was granted, false if it is not granted or denied
+Used to check current status of permission. Returns `true` if permission is granted, `false` if it is not granted or denied.
 
 > `requestPermission`() -> void
 
-Use to request permission to show local notification. On Android <= 12, the permission is alway granted. But you should call it anyway, to have clean code base for all version, platforms.
+Used to request permission to push local notification. On Android <= 12, the permission is always granted. But you should call it anyway to have a clean code base across all versions and platforms.
 
 > `openAppSetting`() -> void
 
-Use to open app setting. When user denied one on iOS and twice on Android, the permission dialog will never appear again. So i make this as a handy method for user to jump to App Setting so they can re-active notification.
+Used to open App Settings. When the user has denied once on iOS and twice on Android, the permission dialog will never appear again. So I make this handy method for the user to jump to App Settings so they can re-activate notification.
 
-*WARNING*: After calling `requestPermission()` if `isPermissionGranted()` still return `false`. It's mean user has denied the permission. You can use this function to help user easily toggle notification on. But you should prompt a dialog or st like that to let user know, or choose to open App Setting or not. Just don't jump out of the app without any notify, they will confuse and may never go back to your app again :(
+*WARNING*: If `isPermissionGranted()` still returns `false` after calling `requestPermission()`, it means the user has denied the permission. You can use this function to help them easily toggle notification on. But you should prompt the user, e.g. with a dialog, to let them know whether to open App Settings or not. Don't just jump out of the app without any pre-notice, they will be confused and may be discouraged to re-open your app :(
 
 > `show`(title, message, interval, tag) -> void
 
-Use to show a notification after `interval` seconds. The `interval` must be greater than 0. And on `iOS` the notification may not show if the app are running on foreground.
+Used to show a notification after `interval` seconds. `interval` must be greater than 0. And on `iOS` the notification may not be displayed if the app is running on the foreground.
 
 > `showRepeating`(title, message, interval, repeat_interval, tag) -> void
 
-Just like `show()` function but the notification will keep repeat after `repeat_interval`.
+Similar to `show()`, but the notification will be pushed once every `repeat_interval`.
 
 > `showDaily`(title, message, at_hour, at_minute, tag) -> void
 
-Show daily notification at your choosen hour and minute.
+Show a daily notification at your chosen hour and minute.
 
 > `cancel`(tag) -> void
 
-Cancel a notification with it tag. When showing notifications, you should store their tags somewhere, in case you want to cancel em and schedule new set of notifications.
+Cancel notifications with this `tag`. When pushing a set of notifications, try to store their tag somewhere, in case you want to remove them and schedule a new set.
 
 ## Signals
 
 ```gdscript
-signal on_permission_request_completed() # emit when the permission request flow completed
+signal on_permission_request_completed() # emits when the permission request flow is completed
 ```
 
 # Contribute
 
-I want to help contribute to Godot community so i create these plugins. I'v prepared almost everything to help the development and release progress faster and easier.
+I want to help contribute to the Godot community so I create these plugins. I've prepared almost everything to help simplify and speed up the development and release progress.
 
-Only one command and you'll build, release this plugin. Read [DEVELOP.md](./DEVELOP.md) for more information.
+With only one command, you can build and release this plugin. Read [DEVELOP.md](./DEVELOP.md) for more information.
 
-If you found bug of the plugin, please open issues.
+If you find bugs, please open issues.
 
-If you have time to fix bugs or improve the plugins. Please open PR, it's always welcome.
+If you have time to fix bugs or improve the plugins, please open a PR. It's always welcomed and appreciated.
 
 # License
 

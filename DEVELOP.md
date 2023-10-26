@@ -1,27 +1,31 @@
 # Develop
 
-This is the full guide of how to start develop with this plugin.
+This is the full guide to start developing with this plugin.
 
-Just install [requirements](#requirements) tools and make sure it work. The rest is pretty simple cause i have writed automation script to build and release. Yay.
+Just install the [required](#requirements) tools and make sure they work. The rest is pretty simple cause I have written an automation script to build and release. Yay.
 
 ## Table of Contents
+- [Develop](#develop)
+  - [Table of Contents](#table-of-contents)
   - [Requirements](#requirements)
   - [Project Structure](#project-structure)
   - [Workflow](#workflow)
+    - [Android](#android)
+    - [iOS](#ios)
   - [Scripts](#scripts)
-    - [Android](#android-scripts)
-    - [iOS](#ios-scripts)
+    - [Android Scripts](#android-scripts)
+    - [iOS Scripts](#ios-scripts)
 
 ## Requirements
 
 > Android Plugin
 
-- Android Studio (prefer latest) & related sdk ([Download](https://developer.android.com))
+- Android Studio (preferably latest) & related SDKs ([Download](https://developer.android.com))
 - Java 17
 
 > iOS Plugin
 
-- XCode (prefer latest)
+- XCode (preferably latest)
 - Python 3.x - ([Install](https://docs.python-guide.org/starting/install3/osx/))
 - Scon ([Install](https://scons.org/doc/production/HTML/scons-user/ch01s02.html))
 
@@ -33,21 +37,23 @@ Just install [requirements](#requirements) tools and make sure it work. The rest
 └── root/
     ├── android/        - Android plugin
     ├── ios/            - iOS plugin
-    ├── autoload/       - Autoload file to load Singleton plugin
-    ├── scripts/        - Scripts to install, build, release for Android/iOS
-    ├── example/        - Example of how to use the plugin
-    ├── .cache/         - Cache folder to download building templates, headers
+    ├── autoload/       - Autoload files to load Singleton plugin
+    ├── scripts/        - Scripts to install, build, and release for Android/iOS
+    ├── example/        - Examples for testing
+    ├── .cache/         - Cache folder to download building templates and headers
     ├── .release/       - When release a plugin, it will be here
-    └── build.env       - Plugin build enviroment
+    └── build.env       - The plugin's build enviroment
 ```
 
 ## Workflow
 
 ### Android
 
-Make sure you have opened the example (Godot 3 or 4 base on your prefer). Install Android Custom Template (So there will be `android/plugins` folder)
+Make sure you have opened the example (Godot 3 or 4 based on your preference).
 
-Coding android plugin in `./android` folder
+Install Android Custom Template (So that there will be `android/plugins` folder)
+
+Code the Android plugin in `./android` folder
 
 Then run:
 
@@ -55,13 +61,13 @@ Then run:
 ./scripts/android/build <version>
 ```
 
-The plugin will build and also copy to the example, and you are ready to test it :)
+The plugin will be built and also copied to `example/`. And you are now ready to test it :)
 
-(Remember the check if the plugin is checked in exported preset)
+(Make sure the plugin is checked in Android export preset)
 
 ### iOS
 
-Coding iOS plugin in `./ios` folder
+Code iOS plugin in `./ios` folder
 
 Then run:
 
@@ -69,9 +75,11 @@ Then run:
 ./scripts/android/build <version>
 ```
 
-The plugin will build and also copy to the example, just export the ios project (make sure to check the plugin in export preset)
+The plugin will be built and also copied to `example/`.
 
-And done, everything is ready to test :)
+Just export the iOS project (make sure the plugin is checked in iOS export preset)
+
+And done, everything is ready for testing :)
 
 ## Scripts
 
@@ -79,9 +87,9 @@ And done, everything is ready to test :)
 
 > [install.sh](./scripts/android/install.sh)
 
-Install godot-lib.aar, which require to build Android plugin.
+Installs godot-lib.aar, which is required to build the Android plugin.
 
-(Will install default version in [build.env](./build.env) if no version provided)
+(Will install default version in [build.env](./build.env) if no version is provided)
 
 Example:
 
@@ -91,11 +99,11 @@ Example:
 
 > [build.sh](./scripts/android/build.sh)
 
-Install and build the Android plugin
+Installs and builds the Android plugin
 
-This will also copy builded file to the example projects (if you have install android custom template)
+This will also copy the built files to the `example/` projects (if you have installed Android custom build template)
 
-(Will build default version in [build.env](./build.env) if no version provided)
+(Will build default version in [build.env](./build.env) if no version is provided)
 
 Example:
 
@@ -105,9 +113,9 @@ Example:
 
 > [release.sh](./scripts/android/release.sh)
 
-Build and release an Android plugin, the output will be in `.release/android/` folder.
+Builds and releases an Android plugin, the output will be in `.release/android/` folder.
 
-(Will build and release all support versions in [build.env](./build.env) if no version provided)
+(Will build and release all supported versions in [build.env](./build.env) if no version is provided)
 
 Example:
 
@@ -115,7 +123,7 @@ Example:
 # Release a specific version
 ./scripts/android/release.sh 3.5
 
-# Release all version
+# Release all versions
 ./scripts/android/release.sh
 ```
 
@@ -123,9 +131,9 @@ Example:
 
 > [install.sh](./scripts/ios/install.sh)
 
-Install godot extracted headers, which require to build iOS plugin.
+Installs Godot extracted headers, which are required to build the iOS plugin.
 
-(Will install default version in [build.env](./build.env) if no version provided)
+(Will install default version in [build.env](./build.env) if no version is provided)
 
 Example:
 
@@ -135,11 +143,11 @@ Example:
 
 > [build.sh](./scripts/ios/build.sh)
 
-Install and build the iOS plugin
+Installs and builds the iOS plugin.
 
-This will also copy builded file to the example projects has exported ios project to `exported/ios`)
+This will also copy the built files to the `example` projects (if you have exported the iOS project to `exported/ios`)
 
-(Will build default version in [build.env](./build.env) if no version provided)
+(Will build default version in [build.env](./build.env) if no version is provided)
 
 Example:
 
@@ -149,9 +157,9 @@ Example:
 
 > [release.sh](./scripts/ios/release.sh)
 
-Build and release an iOS plugin, the output will be in `.release/ios/` folder.
+Builds and releases an iOS plugin, the output will be in `.release/ios/` folder.
 
-(Will build and release all support versions in [build.env](./build.env) if no version provided)
+(Will build and release all supported versions in [build.env](./build.env) if no version is provided)
 
 Example:
 
